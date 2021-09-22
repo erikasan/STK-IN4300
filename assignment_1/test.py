@@ -37,3 +37,6 @@ def get_info(feature):
     print('q3: ', q3)
     print('min: ', min)
     print('max: ', max)
+
+def p(n):
+    return n*100/32560
