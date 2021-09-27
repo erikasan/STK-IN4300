@@ -46,8 +46,11 @@ def p(n):
 sns.set()
 #sns.scatterplot(data=df, x='education', y='hours-per-week', hue='native-country')
 #sns.scatterplot(data=df, x='native-country', y='hours-per-week', hue='education-num')
-sns.scatterplot(data=df, x='age', y='hours-per-week', hue='sex')
-plt.show()
+# sns.scatterplot(data=df, x='age', y='hours-per-week', hue='sex')
+# plt.show()
 
-sns.lineplot(data=df, x='age', y='hours-per-week', hue='sex')
+# sns.lineplot(data=df, x='age', y='hours-per-week', hue='sex')
+# plt.show()
+
+sns.histplot(data=df, x='age', y='hours-per-week', hue='sex')
 plt.show()
