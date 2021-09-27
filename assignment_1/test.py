@@ -24,19 +24,20 @@ df.columns = features + [output]
 df[['age']].mean()
 
 def get_info(feature):
-    mean = df[[feature]].mean()
-    std = df[[feature]].std()
-    median = df[[feature]].median()
-    q3, q1 = np.percentile(df[[feature]], [75 ,25])
-    max = df[[feature]].max()
-    min = df[[feature]].min()
-    print('mean: ', mean)
-    print('std: ', std)
+    column = df[[feature]].sort_values(by=feature)
+    mean   = column.mean()
+    std    = column.std()
+    median = column.median()
+    q3, q1 = np.percentile(column, [75 ,25])
+    max    = column.max()
+    min    = column.min()
+    print('mean: ',   mean)
+    print('std: ',    std)
     print('median: ', median)
-    print('q1: ', q1)
-    print('q3: ', q3)
-    print('min: ', min)
-    print('max: ', max)
+    print('q1: ',     q1)
+    print('q3: ',     q3)
+    print('min: ',    min)
+    print('max: ',    max)
 
 def p(n):
     return n*100/32560
