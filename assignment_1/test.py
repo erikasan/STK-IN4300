@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 features = []
 output = ''
@@ -15,13 +17,12 @@ with open('adult.names') as infile:
 for i in range(len(features)):
     features[i] = features[i][:-1]
 
-print("Feature names:\n", features, '\n')
-print("Output name:\n", output)
+# print("Feature names:\n", features, '\n')
+# print("Output name:\n", output)
 
 df = pd.read_csv('adult.data')
 df.columns = features + [output]
 
-df[['age']].mean()
 
 def get_info(feature):
     column = df[[feature]].sort_values(by=feature)
@@ -41,3 +42,12 @@ def get_info(feature):
 
 def p(n):
     return n*100/32560
+
+sns.set()
+#sns.scatterplot(data=df, x='education', y='hours-per-week', hue='native-country')
+#sns.scatterplot(data=df, x='native-country', y='hours-per-week', hue='education-num')
+sns.scatterplot(data=df, x='age', y='hours-per-week', hue='sex')
+plt.show()
+
+sns.lineplot(data=df, x='age', y='hours-per-week', hue='sex')
+plt.show()
